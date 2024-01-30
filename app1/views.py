@@ -52,3 +52,16 @@ obj1=car(name="tata",model=2023)
 obj2=car(name="tata",model=2023)
 
 QuerySet=[obj1,obj2]"""
+
+
+
+def form_view(request):
+    print(type(request.method))
+    if request.method=="POST":
+        m1=request.POST['movie_name']
+        #m1=request.POST.get('movie_name')
+        h1=request.POST.get('hero_name')
+        y1=request.POST.get('year')
+        return render(request,"form.html",{'movie':m1,'hero':h1,'year':y1,'r1':request.method})
+    else:
+        return render(request,"form.html",{'r1':type(request.method)})
