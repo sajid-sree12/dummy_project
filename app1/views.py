@@ -65,3 +65,7 @@ def form_view(request):
         return render(request,"form.html",{'movie':m1,'hero':h1,'year':y1,'r1':request.method})
     else:
         return render(request,"form.html",{'r1':type(request.method)})
+    
+
+def extend_func(request):
+    return render(request,'c.html')

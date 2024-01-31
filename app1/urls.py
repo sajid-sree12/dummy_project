@@ -7,4 +7,5 @@ urlpatterns=[
     path("wish/<str:name>",views.greet,name="greet_name"),
     path("<int:old>",views.greet2,name="greet2"),
     path("movie",views.form_view,name="form_name"),
+    path("extend_url",views.extend_func)
 ]
