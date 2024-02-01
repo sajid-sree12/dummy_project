@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib import messages
 # Create your views here.
 def home(request):
     
@@ -69,3 +70,17 @@ def form_view(request):
 
 def extend_func(request):
     return render(request,'c.html')
+
+def msg(request):
+    u1="sajid"
+    e1="sajid942@gmail.com"
+    if request.method=="POST":
+        us=request.POST.get("usern")
+        em=request.POST.get("email")
+        if u1==us and e1==em:
+            messages.success(request,"Login Credentials Verified Successfully !!")
+            return render(request,"new/index.html")
+        else:
+            messages.error(request,"May be Wrong Credentials !!")
+            return render(request,'new/index.html')
+    return render(request,"new/index.html")
